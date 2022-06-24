@@ -13,7 +13,7 @@ const app = express()
 app.use(bodyParser.json()) // 解析json数据格式
 app.use(bodyParser.urlencoded({ extended: true })) // 解析form表单提交的数据application/x-www-form-urlencoded
 
-app.use(cors()); // 注入cors模块解决跨域
+app.use(cors()) // 注入cors模块解决跨域
 
 //设置跨域访问l
 // app.all('*', function (req, res, next) {

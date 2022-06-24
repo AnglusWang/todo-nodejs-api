@@ -27,7 +27,7 @@ function login(req, res, next) {
         password = md5(password)
         const query = `select * from sys_user where username='${username}' and password='${password}'`
         querySql(query).then((user) => {
-            console.log('用户登录===', user);
+            console.log('用户登录===', user)
             if (!user || user.length === 0) {
                 res.json({
                     code: CODE_ERROR,
@@ -77,7 +77,7 @@ function register(req, res, next) {
     } else {
         let { username, password } = req.body
         findUser(username).then((data) => {
-            console.log('用户注册===', data);
+            console.log('用户注册===', data)
             if (data) {
                 res.json({
                     code: CODE_ERROR,
@@ -88,7 +88,7 @@ function register(req, res, next) {
                 password = md5(password)
                 const query = `insert into sys_user(username, password) values('${username}', '${password}')`
                 querySql(query).then((result) => {
-                    console.log('用户注册===', result);
+                    console.log('用户注册===', result)
                     if (!result || result.length === 0) {
                         res.json({
                             code: CODE_ERROR,
@@ -142,7 +142,7 @@ function resetPwd(req, res, next) {
                     newPassword = md5(newPassword)
                     const query = `update sys_user set password='${newPassword}' where username='${username}'`
                     querySql(query).then((user) => {
-                        console.log('密码重置===', user);
+                        console.log('密码重置===', user)
                         if (!user || user.length === 0) {
                             res.json({
                                 code: CODE_ERROR,
